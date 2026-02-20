@@ -3,19 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>马里奥游戏 - 游戏世界</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="style.css">
+    <title>马里奥平台游戏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #87CEEB, #98FB98);
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .game-title {
+            color: #FF0000;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .game-description {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .control-btn {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .control-btn:hover {
+            background: #45a049;
+        }
+        .character {
+            width: 80px;
+            height: 80px;
+            background: #FF0000;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            animation: jump 2s infinite;
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .platform {
+            width: 200px;
+            height: 20px;
+            background: #8B4513;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>经典马里奥游戏</h1>
-        <div id="game-container">
-            <canvas id="marioCanvas" width="800" height="400"></canvas>
+    <div class="game-container">
+        <h1 class="game-title">🎮 马里奥平台游戏</h1>
+        
+        <div class="game-description">
+            <p><strong>游戏说明：</strong>这是一个简化的马里奥风格平台游戏演示。</p>
+            <p>使用方向键控制角色移动，空格键跳跃！</p>
+            <p>收集金币，避开敌人，到达终点！</p>
         </div>
-        <p>使用方向键控制马里奥，空格键跳跃！</p>
-        <a href="../games.html" class="btn btn-primary">返回游戏列表</a>
+
+        <div class="character"></div>
+        <div class="platform"></div>
+
+        <div class="controls">
+            <button class="control-btn" onclick="moveLeft()">← 左</button>
+            <button class="control-btn" onclick="jump()">↑ 跳跃</button>
+            <button class="control-btn" onclick="moveRight()">→ 右</button>
+        </div>
+
+        <div style="margin-top: 30px; padding: 15px; background: #f0f0f0; border-radius: 8px;">
+            <h3>游戏目标：</h3>
+            <ul style="text-align: left; margin: 10px 0;">
+                <li>收集所有金币 🪙</li>
+                <li>安全到达旗杆 🏁</li>
+                <<li>获得最高分数！</li>
+            </ul>
+        </div>
     </div>
-    <script src="game.js"></script>
+
+    <script>
+        let position = 0;
+        let score = 0;
+
+        function moveLeft() {
+            position = Math.max(0, position - 10);
+            updateCharacter();
+        }
+
+        function moveRight() {
+            position = Math.min(700, position + 10);
+            updateCharacter();
+        }
+
+        function jump() {
+            const character = document.querySelector('.character');
+            character.style.animation = 'none';
+            setTimeout(() => {
+                character.style.animation = 'jump 2s infinite';
+            }, 10);
+        }
+
+        function updateCharacter() {
+            const character = document.querySelector('.character');
+            character.style.transform = `translateX(${position}px)`;
+        }
+
+        // 简单的交互提示
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') moveLeft();
+            if (e.key === 'ArrowRight') moveRight();
+            if (e.key === ' ') {
+                e.preventDefault();
+                jump();
+            }
+        });
+    </script>
 </body>
 </html>
