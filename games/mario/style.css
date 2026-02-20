@@ -1,0 +1,28 @@
+/* Mario game styles */
+body {
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    background: #87CEEB;
+    margin: 0;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #8B4513;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #FF0000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.game-content {
+    background: #F0E68C;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}

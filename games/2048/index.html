@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2048 Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/style/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>2048</h1>
+        <p>Use arrow keys to play!</p>
+        <div id="game-container"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/js/game_manager.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/js/grid.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/js/tile.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/js/html_actuator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/2048/1.0.0/js/keyboard_input_manager.js"></script>
+    <script>
+        new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+    </script>
+</body>
+</html>

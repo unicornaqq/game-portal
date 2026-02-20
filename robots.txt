@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unicornaqq.github.io/game-portal/sitemap.xml

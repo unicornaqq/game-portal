@@ -1,0 +1,9 @@
+/* Simple Mario-style CSS */
+body {
+    background: #87CEEB;
+    font-family: 'Arial', sans-serif;
+}
+.game-container {
+    text-align: center;
+    margin: 20px;
+}
