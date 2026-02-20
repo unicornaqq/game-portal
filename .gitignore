@@ -33,3 +33,8 @@ out/
 # Backup files
 *~
 *.bak
+
+# OpenClaw agent files (not part of this project)
+MIGRATION_GUIDE.md
+README.md
+
